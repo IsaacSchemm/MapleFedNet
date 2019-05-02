@@ -1,10 +1,5 @@
 # Mastodon.Net
-.Net wrapper(.Net Standard 1.4) for [Mastodon](https://github.com/tootsuite/mastodon) Api  
-
-# Getting Start  
-[![NuGet version](https://badge.fury.io/nu/Mastodon.Net.svg)](https://badge.fury.io/nu/Mastodon.Net)
-[![Build status](https://ci.appveyor.com/api/projects/status/m1gli5hd3yk30rl2?svg=true)](https://ci.appveyor.com/project/Tlaster/mastodon-net)
-
+.Net wrapper(.Net Standard 2.0) for [Mastodon](https://github.com/tootsuite/mastodon) Api  
 
 # Sample  
 ```C#            
@@ -26,6 +21,7 @@ var toot = await Statuses.Posting(domain, token.AccessToken, "Toot!");
 MIT License
 
 Copyright (c) 2017 Tlaster
+Copyright (c) 2019 libertyernie
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
