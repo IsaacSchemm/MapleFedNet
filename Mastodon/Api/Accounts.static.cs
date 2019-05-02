@@ -72,8 +72,8 @@ namespace Mastodon.Api
         /// <param name="since_id">(optional) Get a list of followers with ID greater than this value</param>
         /// <param name="limit">(optional) Maximum number of accounts to get (Default 40, Max 80)</param>
         /// <returns>Returns an array of <see cref="Account" /></returns>
-        public static async Task<MastodonList<Account>> Followers(IMastodonCredentials credentials, long id, long max_id = 0,
-            long since_id = 0, int limit = 40)
+        public static async Task<MastodonList<Account>> Followers(IMastodonCredentials credentials, long id, string max_id = "",
+            string since_id = "", int limit = 40)
         {
 			string domain = credentials.Domain;
 			string token = credentials.Token;
@@ -96,8 +96,8 @@ namespace Mastodon.Api
         /// <param name="max_id">(optional) Get a list of following with ID less than or equal this value</param>
         /// <param name="since_id">(optional) Get a list of following with ID greater than this value</param>
         /// <returns>Returns an array of <see cref="Account" /></returns>
-        public static async Task<MastodonList<Account>> Following(IMastodonCredentials credentials, long id, long max_id = 0,
-            long since_id = 0)
+        public static async Task<MastodonList<Account>> Following(IMastodonCredentials credentials, long id, string max_id = "",
+			string since_id = "")
         {
 			string domain = credentials.Domain;
 			string token = credentials.Token;
@@ -115,8 +115,8 @@ namespace Mastodon.Api
         /// <param name="only_media">(optional) Only return statuses that have media attachments</param>
         /// <param name="exclude_replies">(optional) Skip statuses that reply to other statuses</param>
         /// <returns>Returns an array of <see cref="Status" /></returns>
-        public static async Task<MastodonList<Status>> Statuses(IMastodonCredentials credentials, long id, long max_id = 0,
-            long since_id = 0, bool only_media = false, bool exclude_replies = false, bool pinned = false,
+        public static async Task<MastodonList<Status>> Statuses(IMastodonCredentials credentials, long id, string max_id = "",
+            string since_id = "", bool only_media = false, bool exclude_replies = false, bool pinned = false,
             int limit = 20)
         {
 			string domain = credentials.Domain;

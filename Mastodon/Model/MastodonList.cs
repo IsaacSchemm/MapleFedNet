@@ -16,7 +16,7 @@ namespace Mastodon.Model
         {
         }
 
-        public long? MaxId { get; internal set; }
-        public long? SinceId { get; internal set; }
+        public string MaxId { get; internal set; }
+        public string SinceId { get; internal set; }
     }
 }

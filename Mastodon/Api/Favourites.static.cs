@@ -13,8 +13,8 @@ namespace Mastodon.Api
         /// <param name="max_id"></param>
         /// <param name="since_id"></param>
         /// <returns>Returns an array of <see cref="Status" /> favourited by the authenticated user</returns>
-        public static async Task<MastodonList<Status>> Fetching(IMastodonCredentials credentials, long max_id = 0,
-            long since_id = 0, int limit = 20)
+        public static async Task<MastodonList<Status>> Fetching(IMastodonCredentials credentials, string max_id = "",
+            string since_id = "", int limit = 20)
         {
             string domain = credentials.Domain;
             string token = credentials.Token;

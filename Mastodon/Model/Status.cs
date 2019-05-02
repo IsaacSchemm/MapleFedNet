@@ -10,7 +10,7 @@ namespace Mastodon.Model
         ///     The ID of the status
         /// </summary>
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         ///     A Fediverse-unique resource ID
@@ -34,7 +34,7 @@ namespace Mastodon.Model
         ///     null or the ID of the status it replies to
         /// </summary>
         [JsonProperty("in_reply_to_id")]
-        public long? InReplyToId { get; set; }
+        public string InReplyToId { get; set; }
 
         /// <summary>
         ///     null or the ID of the account it replies to

@@ -88,8 +88,8 @@ namespace Mastodon.Common
             return JsonConvert.DeserializeObject<T>(await GetAsync(url, token, param));
         }
 
-//        public static async Task<MastodonList<T>> GetListAsync<T>(string url, string token, long max_id = 0,
-//            long since_id = 0, params (string Key, string Value)[] param)
+//        public static async Task<MastodonList<T>> GetListAsync<T>(string url, string token, string max_id = "",
+//            string since_id = "", params (string Key, string Value)[] param)
 //        {
 //            var p = new List<(string Key, string Value)>
 //            {
@@ -102,8 +102,8 @@ namespace Mastodon.Common
 //        }
 
         public async Task<MastodonList<T>> GetListAsync<T>(string url, string token,
-            long max_id = 0,
-            long since_id = 0,
+            string max_id = "",
+			string since_id = "",
             params (string Key, string Value)[] param)
         {
             var p = new List<(string Key, string Value)>
@@ -119,19 +119,17 @@ namespace Mastodon.Common
                     return new MastodonList<T>(
                         JsonConvert.DeserializeObject<List<T>>(await res.Content.ReadAsStringAsync()))
                     {
-                        MaxId = 0,
-                        SinceId = 0
-                    };
+                        MaxId = "",
+                        SinceId = ""
+					};
                 var links = values.FirstOrDefault().Split(',').Select(s =>
-                    Regex.Match(s, "<.*(max_id|since_id)=([0-9]*)(.*)>; rel=\"(.*)\"").Groups).ToList();
-                long.TryParse(links.FirstOrDefault(m => m[1].Value == "max_id")?[2]?.Value, out var maxId);
-                long.TryParse(links.FirstOrDefault(m => m[1].Value == "since_id")?[2]?.Value, out var sinceId);
+                    Regex.Match(s, "<.*(max_id|since_id)=([0-9A-Za-z]*)(.*)>; rel=\"(.*)\"").Groups).ToList();
                 return new MastodonList<T>(
                     JsonConvert.DeserializeObject<List<T>>(await res.Content.ReadAsStringAsync()))
                 {
-                    MaxId = maxId,
-                    SinceId = sinceId
-                };
+                    MaxId = links.FirstOrDefault(m => m[1].Value == "max_id")?[2]?.Value,
+                    SinceId = links.FirstOrDefault(m => m[1].Value == "since_id")?[2]?.Value
+				};
             }
         }
 

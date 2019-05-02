@@ -15,8 +15,8 @@ namespace Mastodon.Api
         /// <param name="max_id"></param>
         /// <param name="since_id"></param>
         /// <returns>Returns a list of <see cref="Notification" /> for the authenticated user</returns>
-        public static async Task<MastodonList<Notification>> Fetching(IMastodonCredentials credentials, long max_id = 0,
-            long since_id = 0, int limit = 15, NotificationType? exclude_types = null)
+        public static async Task<MastodonList<Notification>> Fetching(IMastodonCredentials credentials, string max_id = "",
+            string since_id = "", int limit = 15, NotificationType? exclude_types = null)
         {
             string domain = credentials.Domain;
             string token = credentials.Token;
