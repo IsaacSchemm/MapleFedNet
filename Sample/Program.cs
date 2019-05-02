@@ -2,6 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Mastodon.Api;
+using Mastodon.Common;
 using Mastodon.Model;
 
 namespace Sample
@@ -22,11 +23,11 @@ namespace Sample
             var token = await OAuth.GetAccessTokenByPassword(domain, oauth.ClientId, oauth.ClientSecret,
                 userName, password, Scope.Follow, Scope.Read, Scope.Write);
 
-            
-            var verify = await Accounts.VerifyCredentials(domain, token.AccessToken);
-            var timeline = await Timelines.Home(domain, token.AccessToken);
-            var notify = await Notifications.Fetching(domain, token.AccessToken);
-            var toot = await Statuses.Posting(domain, token.AccessToken, "Toot!");
+			var credentials = new MastodonCredentials(domain, token.AccessToken);
+            var verify = await Accounts.VerifyCredentials(credentials);
+            var timeline = await Timelines.Home(credentials);
+            var notify = await Notifications.Fetching(credentials);
+            var toot = await Statuses.Posting(credentials, "Toot!");
             Console.WriteLine("complete!");
         }
 

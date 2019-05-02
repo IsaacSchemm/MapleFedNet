@@ -90,10 +90,12 @@ namespace Mastodon.Api
         /// </param>
         /// <param name="media_ids">(optional) array of media IDs to attach to the status (maximum 4)</param>
         /// <returns></returns>
-        public static async Task<Status> Posting(string domain, string token, string status, int in_reply_to_id = 0,
+        public static async Task<Status> Posting(IMastodonCredentials credentials, string status, int in_reply_to_id = 0,
             bool sensitive = false, string spoiler_text = "", Visibility visibility = Visibility.Public,
             params int[] media_ids)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             if (media_ids != null && media_ids.Length > 4) throw new ArgumentOutOfRangeException(nameof(media_ids));
             ICollection<(string, string)> param;
             if (media_ids != null && media_ids.Any())
@@ -117,8 +119,10 @@ namespace Mastodon.Api
         /// <param name="token"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static async Task Delete(string domain, string token, long id)
+        public static async Task Delete(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             await HttpHelper.Instance.DeleteAsync<HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesDelete.Id(id.ToString())}",
                 token);
@@ -131,8 +135,10 @@ namespace Mastodon.Api
         /// <param name="token"></param>
         /// <param name="id"></param>
         /// <returns>Returns the target <see cref="Status" /></returns>
-        public static async Task<Status> Reblog(string domain, string token, long id)
+        public static async Task<Status> Reblog(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesReblog.Id(id.ToString())}", token, null);
         }
@@ -144,8 +150,10 @@ namespace Mastodon.Api
         /// <param name="token"></param>
         /// <param name="id"></param>
         /// <returns>Returns the target <see cref="Status" /></returns>
-        public static async Task<Status> UnReblog(string domain, string token, long id)
+        public static async Task<Status> UnReblog(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesUnReblog.Id(id.ToString())}", token, null);
         }
@@ -157,8 +165,10 @@ namespace Mastodon.Api
         /// <param name="token"></param>
         /// <param name="id"></param>
         /// <returns>Returns the target <see cref="Status" /></returns>
-        public static async Task<Status> Favourite(string domain, string token, long id)
+        public static async Task<Status> Favourite(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesFavourite.Id(id.ToString())}", token, null);
         }
@@ -170,33 +180,43 @@ namespace Mastodon.Api
         /// <param name="token"></param>
         /// <param name="id"></param>
         /// <returns>Returns the target <see cref="Status" /></returns>
-        public static async Task<Status> UnFavourite(string domain, string token, long id)
+        public static async Task<Status> UnFavourite(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesUnFavourite.Id(id.ToString())}", token, null);
         }
         
         
-        public static async Task<Status> Pin(string domain, string token, long id)
+        public static async Task<Status> Pin(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesPin.Id(id.ToString())}", token, null);
         }
 
-        public static async Task<Status> UnPin(string domain, string token, long id)
+        public static async Task<Status> UnPin(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesUnpin.Id(id.ToString())}", token, null);
         }
         
-        public static async Task<Status> Mute(string domain, string token, long id)
+        public static async Task<Status> Mute(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesMute.Id(id.ToString())}", token, null);
         }
 
-        public static async Task<Status> UnMute(string domain, string token, long id)
+        public static async Task<Status> UnMute(IMastodonCredentials credentials, long id)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.PostAsync<Status, HttpContent>(
                 $"{HttpHelper.HTTPS}{domain}{Constants.StatusesUnmute.Id(id.ToString())}", token, null);
         }

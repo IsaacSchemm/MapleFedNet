@@ -9,9 +9,11 @@ namespace Mastodon.Api
     /// </summary>
     public static class Timelines
     {
-        public static async Task<MastodonList<Status>> Home(string domain, string token, long max_id = 0,
+        public static async Task<MastodonList<Status>> Home(IMastodonCredentials credentials, long max_id = 0,
             long since_id = 0, bool only_media = false, int limit = 20)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.GetListAsync<Status>($"{HttpHelper.HTTPS}{domain}{Constants.TimelineHome}", token,
                 max_id, since_id,
                 (nameof(only_media), only_media.ToString()),
@@ -37,9 +39,11 @@ namespace Mastodon.Api
                 (nameof(limit), limit.ToString()));
         }
         
-        public static async Task<MastodonList<Status>> List(string domain, string token, string id, long max_id = 0,
+        public static async Task<MastodonList<Status>> List(IMastodonCredentials credentials, string id, long max_id = 0,
             long since_id = 0, bool only_media = false, int limit = 20)
         {
+            string domain = credentials.Domain;
+            string token = credentials.Token;
             return await HttpHelper.Instance.GetListAsync<Status>($"{HttpHelper.HTTPS}{domain}{Constants.TimelineList.Id(id)}", token,
                 max_id, since_id,
                 (nameof(only_media), only_media.ToString()),
