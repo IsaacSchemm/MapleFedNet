@@ -1,19 +1,28 @@
-# Mastodon.Net
-.Net wrapper(.Net Standard 2.0) for [Mastodon](https://github.com/tootsuite/mastodon) Api  
+# Maplesharp
+Maplesharp is a .NET Standard wrapper for the [Mastodon](https://github.com/tootsuite/mastodon) API.
 
-# Sample  
-```C#            
+Maplesharp is based on [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net), but with a few major changes:
+
+* Functions that take parameters for both domain and access token now combine
+  them into one parameter of type `IMastodonCredentials`
+* Toot IDs are now treated as alphanumeric strings (for Pleroma compatibility)
+* `params T[]` parameters and optional parameters are no longer used in the same method
+
+# Sample
+
+```
 var domain = "mstdn.jp";
-var clientName = "Mastodon.Net";
+var clientName = "Maplesharp";
 var userName = "";
 var password = "";
 
-var oauth = await Apps.Register(domain, clientName, scopes: new[] {Apps.SCOPE_READ, Apps.SCOPE_WRITE, Apps.SCOPE_FOLLOW});
-var token = await OAuth.GetAccessTokenByPassword(domain, oauth.ClientId, oauth.ClientSecret, oauth.RedirectUri, userName, password, Apps.SCOPE_READ, Apps.SCOPE_WRITE, Apps.SCOPE_FOLLOW);
+var oauth = await Apps.Register(domain, clientName, scopes: new[] {Scope.Follow, Scope.Read, Scope.Write});
+var token = await OAuth.GetAccessTokenByPassword(domain, oauth.ClientId, oauth.ClientSecret, userName, password, Scope.Follow, Scope.Read, Scope.Write);
 
-var timeline = await Timelines.Home(domain, token.AccessToken);
-var notify = await Notifications.Fetching(domain, token.AccessToken);
-var toot = await Statuses.Posting(domain, token.AccessToken, "Toot!");
+var credentials = new MastodonCredentials(domain, token.AccessToken);
+var timeline = await Timelines.Home(credentials);
+var notify = await Notifications.Fetching(credentials);
+var toot = await Statuses.Posting(credentials, "Toot!");
 ```
 
 # License
