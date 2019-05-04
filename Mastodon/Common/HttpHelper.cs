@@ -101,7 +101,7 @@ namespace Maplesharp.Common
 //            return await GetListAsync<T>(url, token, p);
 //        }
 
-        public async Task<MastodonList<T>> GetListAsync<T>(string url, string token,
+        internal async Task<MastodonList<T>> GetListAsync<T>(string url, string token,
             string max_id = "",
 			string since_id = "",
             params (string Key, string Value)[] param)

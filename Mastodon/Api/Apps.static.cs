@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Maplesharp.Common;
 using Maplesharp.Model;
@@ -25,8 +26,10 @@ namespace Maplesharp.Api
         ///     <see cref="AppRegistration" />
         /// </returns>
         public static async Task<AppRegistration> Register(string domain, string client_name, string website = "",
-            string redirect_uris = Constants.NoRedirect, params Scope[] scopes)
+            string redirect_uris = Constants.NoRedirect, IEnumerable<Scope> scopes = null)
         {
+			if (scopes == null)
+				scopes = Enumerable.Empty<Scope>();
             return await HttpHelper.Instance.PostAsync<AppRegistration, string>($"{HttpHelper.HTTPS}{domain}{Constants.AppsRegistering}",
                 null, (nameof(client_name), client_name), (nameof(redirect_uris), redirect_uris),
                 (nameof(website), website), (nameof(scopes), string.Join(" ", scopes.Select(it => it.ToString("F").ToLowerInvariant()))));

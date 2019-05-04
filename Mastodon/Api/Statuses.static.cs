@@ -92,11 +92,11 @@ namespace Maplesharp.Api
         /// <returns></returns>
         public static async Task<Status> Posting(IMastodonCredentials credentials, string status, int in_reply_to_id = 0,
             bool sensitive = false, string spoiler_text = "", Visibility visibility = Visibility.Public,
-            params int[] media_ids)
+            IEnumerable<int> media_ids = null)
         {
             string domain = credentials.Domain;
             string token = credentials.Token;
-            if (media_ids != null && media_ids.Length > 4) throw new ArgumentOutOfRangeException(nameof(media_ids));
+            if (media_ids != null && media_ids.Count() > 4) throw new ArgumentOutOfRangeException(nameof(media_ids));
             ICollection<(string, string)> param;
             if (media_ids != null && media_ids.Any())
                 param = HttpHelper.Instance.ArrayEncode(nameof(media_ids), media_ids.Select(v => v.ToString()).ToArray())
