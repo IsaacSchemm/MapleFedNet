@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mastodon.Common {
+namespace Maplesharp.Common {
 	public interface IMastodonCredentials {
 		string Domain { get; }
 		string Token { get; }

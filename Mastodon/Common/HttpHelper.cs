@@ -5,12 +5,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Mastodon.Model;
+using Maplesharp.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
-namespace Mastodon
+namespace Maplesharp
 {
     public static class MastodonApi
     {
@@ -31,7 +31,7 @@ namespace Mastodon
     }
 }
 
-namespace Mastodon.Common
+namespace Maplesharp.Common
 {
     internal class HttpHelper
     {

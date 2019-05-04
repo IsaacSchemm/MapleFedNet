@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mastodon.Model
+namespace Maplesharp.Model
 {
     public class MastodonList<T> : List<T>
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Mastodon.Model
+namespace Maplesharp.Model
 {
     public enum Scope
     {

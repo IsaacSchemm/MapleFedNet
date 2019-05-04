@@ -1,4 +1,4 @@
-﻿namespace Mastodon.Api
+﻿namespace Maplesharp.Api
 {
     internal sealed class Constants
     {

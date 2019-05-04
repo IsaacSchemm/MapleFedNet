@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mastodon", "Mastodon\Mastodon.csproj", "{CE92A3F4-6F51-4580-B9BF-71FDAF03EF4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maplesharp", "Mastodon\Maplesharp.csproj", "{CE92A3F4-6F51-4580-B9BF-71FDAF03EF4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{8449A6D4-369A-42D8-98CB-292381113E87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csproj", "{8449A6D4-369A-42D8-98CB-292381113E87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54DB1494-60B6-4AD1-8846-C341D6225E9A}
 	EndGlobalSection
 EndGlobal

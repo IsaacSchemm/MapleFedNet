@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mastodon.Common
+namespace Maplesharp.Common
 {
     public class MastodonException : Exception
     {

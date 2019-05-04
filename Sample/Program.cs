@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Tasks;
-using Mastodon.Api;
-using Mastodon.Common;
-using Mastodon.Model;
+using Maplesharp.Api;
+using Maplesharp.Common;
+using Maplesharp.Model;
 
 namespace Sample
 {

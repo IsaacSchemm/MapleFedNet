@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Mastodon.Common;
-using Mastodon.Model;
+using Maplesharp.Common;
+using Maplesharp.Model;
 
-namespace Mastodon.Api
+namespace Maplesharp.Api
 {
     public class Media
     {

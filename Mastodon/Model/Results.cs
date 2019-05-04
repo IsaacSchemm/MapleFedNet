@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Mastodon.Model
+namespace Maplesharp.Model
 {
     public class Results
     {

@@ -1,4 +1,4 @@
-﻿namespace Mastodon.Model
+﻿namespace Maplesharp.Model
 {
     public enum Visibility
     {
