@@ -218,7 +218,7 @@ namespace Maplesharp.Common
                 var jobj = JsonConvert.DeserializeObject<JObject>(json);
                 if (jobj.TryGetValue("error", out var token)) throw new MastodonException(token.Value<string>());
             }
-            catch (InvalidCastException e)
+            catch (InvalidCastException)
             {
             }
 
