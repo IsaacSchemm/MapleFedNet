@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Tasks;
-using Maplesharp.Api;
-using Maplesharp.Common;
-using Maplesharp.Model;
+using MapleFedNet.Api;
+using MapleFedNet.Common;
+using MapleFedNet.Model;
 
 namespace Sample
 {

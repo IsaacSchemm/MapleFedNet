@@ -1,18 +1,18 @@
-# Maplesharp
-Maplesharp is a .NET Standard wrapper for the [Mastodon](https://github.com/tootsuite/mastodon) API.
+# MapleFedNet
+MapleFedNet is a .NET Standard wrapper for the [Mastodon](https://github.com/tootsuite/mastodon) API.
 
-Maplesharp is based on [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net), but with a few major changes:
+MapleFedNet is based on [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net), but with a few major changes:
 
 * Functions that take parameters for both domain and access token now combine
   them into one parameter of type `IMastodonCredentials`
 * Toot IDs are now treated as alphanumeric strings (for Pleroma compatibility)
-* `params T[]` parameters and optional parameters are no longer used in the same method
+* `params T[]` parameters and optional parameters are no longer used in the same methods
 
 # Sample
 
 ```
 var domain = "mstdn.jp";
-var clientName = "Maplesharp";
+var clientName = "MapleFedNet";
 var userName = "";
 var password = "";
 

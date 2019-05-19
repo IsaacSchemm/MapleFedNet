@@ -5,6 +5,6 @@
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mastodon\Maplesharp.csproj" />
+    <ProjectReference Include="..\MapleFedNet\MapleFedNet.csproj" />
   </ItemGroup>
 </Project>
