@@ -9,8 +9,9 @@
     <PackageProjectUrl>https://github.com/libertyernie/Maplesharp</PackageProjectUrl>
     <PackageTags>mastodon pleroma</PackageTags>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Added parameter to specify focal point of uploaded image</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
