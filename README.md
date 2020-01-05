@@ -5,7 +5,8 @@ MapleFedNet is based on [Mastodon.Net](https://github.com/Tlaster/Mastodon.Net),
 
 * Functions that take parameters for both domain and access token now combine
   them into one parameter of type `IMastodonCredentials`
-* Toot IDs are now treated as alphanumeric strings (for Pleroma compatibility)
+    * A `MastodonCredentials` immutable class is available if you don't want to create your own
+* Post IDs are now treated as alphanumeric strings (for Pleroma compatibility)
 * `params T[]` parameters and optional parameters are no longer used in the same methods
 
 # Sample
@@ -30,7 +31,7 @@ var toot = await Statuses.Posting(credentials, "Toot!");
 MIT License
 
 Copyright (c) 2017 Tlaster
-Copyright (c) 2019 libertyernie
+Copyright (c) 2019-2020 Isaac Schemm
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
